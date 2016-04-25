@@ -1,59 +1,265 @@
 <html lang="en">
 <head>
-  <title>AngularJS - UI Router - Example 1</title>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
-  <link href='style.css' rel='stylesheet' type='text/css'>
-
+<title>Insided</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="http://insided.com/img/favicon-32x32.png">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link rel="stylesheet" href="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/css/bootstrap-multiselect.css" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-bootstrap/0.5pre/css/custom-theme/jquery-ui-1.10.0.custom.css"  type="text/css">
+<link href='css/style.css' rel='stylesheet' type='text/css'>
+<!--[if lt IE 9]>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+<![endif]-->
 </head>
-<body ng-app="DemoApp">
-	
-	<div ng-controller="DemoController">
-		<header>
-			<h1>SASS-no Ng</h1>
-		</header>
-		<nav>
-			<ul>
-				<li>
-					<a 	href="#" title="left" 	
-						ng-class="{active:transition=='slide-left'}" 		ng-click="left()"> 
-						Left
-					</a>
-				</li>
-				<li>
-					<a 	href="#" title="right" 	
-						ng-class="{'active':transition=='slide-right'}" 	ng-click="right()">
-						Right
-					</a>
-				</li>
-				<li>
-					<a 	href="#" title="top" 	
-						ng-class="{'active':transition=='slide-top'}" 		ng-click="top()">
-						Top
-					</a>
-				</li>
-				<li>
-					<a 	href="#" title="bottom" 	
-						ng-class="{'active':transition=='slide-bottom'}" 	ng-click="bottom()">
-						Bottom
-					</a>
-				</li>
-			</ul>
-		</nav>
+<body>
+<div class="container">
+	<div class="row">
+	<div class="header col-md-12"><img class="header__logo--left" src="http://insided.com/img/favicon-32x32.png" width="32"/><span class="header__logo--text"> INSIDED</span></div>
+	</div>
+	<div class="row">
+	 <div class="subheader col-md-12 clearfix">
+	 	<div class="subheader__title col-md-4"><h1>User overview</h1></div>
 
-		<div class="content">
-			<div ui-view ng-class="transition">
-				default content
-			</div>
-		</div>
+	 	<div class="subheader__elements--right col-md-8">
+	 	<div class="subheader__filterusergroup">
+			<div class="btn-group btn-group-right">
+			   <select size="5" name="role" multiple="multiple" class="role">
+		        <option value="Captain">Captain</option>
+		        <option value="Colonel">Colonel</option>
+		        <option value="General">General</option>
+		        <option value="Lieutenant">Lieutenant</option>
+		        <option value="Officer">Officer</option>
+		   	 </select>  
+
+			</div> 
+	 	</div>
+	 	<div class="subheader__searchfield-icon">
+	 	<form class="navbar-form navbar-left subheader__right--spacing" role="search">
+		  <div class="form-group has-feedback">
+		    <input type="text" class="form-control" placeholder="Search">
+		    <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+		  </div>
+		</form>
+	 	</div>
+	 	<div class="subheader__advancedfilter">
+	 		<button class="btn btn-default subheader__btn--spacing"><span class="glyphicon glyphicon-list" aria-hidden="true"></span><span class="subheader__advancedfiltertext"> Advanced filter</span></button>
+	 	</div>
+	 	<button class="btn btn-primary subheader__adduser subheader__btn--spacing">Add user</button>
+	 </div>
+	 </div>
 	</div>
 
-  <script data-require="angular.js@1.2.10" data-semver="1.2.10" src="http://code.angularjs.org/1.2.10/angular.min.js"></script>
-  <script data-require="angular-animate@1.2.11" data-semver="1.2.11" src="http://code.angularjs.org/1.2.11/angular-animate.min.js"></script>
-  <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.min.js"></script>
-  <script src="angularapp.js"></script>
+	<div class="row">
+	<div class="advancedfilter">
+		<div class="advancedfilter__title col-md-12">Advanced filter<span class="caret"></span></div>
+		<div class="advancedfilter__filtergroup">
+			<div class="btn-group btn-group-left btn-group-size">
+			  <button type="button" class="btn btn-default dropdown-toggle col-md-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			    Replies <span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu">
+			    <li><a href="#">Replies</a></li>
+			    <li><a href="#">Topics</a></li>
+			    <li><a href="#">Solved</a></li>
+			  </ul>
+			</div> 
+
+			<div class="btn-group btn-group-left btn-group-size">
+			  <button type="button" class="btn btn-default dropdown-toggle col-md-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			    Is greater than <span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu">
+			    <li><a href="#">Is greater than</a></li>
+			    <li><a href="#">Is smaller than</a></li>
+			    <li><a href="#">Equals</a></li>
+			  </ul>
+			</div> 
+
+			<div class="btn-group btn-group-left input-group--align btn-group-size">
+				 
+				    <input type="text" class="form-control" placeholder="" value="100">
+			</div> 
+
+			<div class="btn-group btn-group-left btn-nomargin">
+				<button type="button" class="close advancedfilter_row--close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div> 
+		</div>
+		<div class="advancedfilter__filtergroup">
+			<div class="btn-group btn-group-left btn-group-size">
+			  <button type="button" class="btn btn-default dropdown-toggle col-md-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			    Registration date<span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu">
+			    <li><a href="#">Registration Date</a></li>
+			    <li><a href="#">Last Login</a></li>
+			  </ul>
+			</div> 
+
+			<div class="btn-group btn-group-left btn-group-size">
+			  <button type="button" class="btn btn-default dropdown-toggle col-md-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			    after <span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu">
+			    <li><a href="#">Before</a></li>
+			    <li><a href="#">After</a></li>
+			    <li><a href="#">Exact date</a></li>
+			  </ul>
+			</div> 
+
+			<div class="btn-group btn-group-left input-group--align btn-group-size">
+				 
+				    <div class="controls">
+			            <input id="date-picker-1" type="text" class="date-picker form-control" value="01 Jan 2016"/>
+			        </div>
+			</div> 
+
+			<div class="btn-group btn-group-left btn-nomargin">
+				<button type="button" class="close advancedfilter_row--close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div> 
+		</div>
+		<div class="btn btn-primary advancedfilter__btn">Add row</div>
+		<div class="advancedfilter_action-btn">
+			<button class="btn btn-success">Apply</button>
+			<button  class="btn btn-default"><b>Clear filters</b></button>
+			<a href="#" class="btn anchor-btn">Close</a>
+		</div> 
+	</div>
+	</div>
+
+	<div class="row">
+	 <div class="results-label col-md-4">Results: <span class="results-text">1337</span></div>
+	
+	</div>
+
+	<div class="row">
+	 <div class="userdetailtable">
+	 	<table class="table table-striped">
+        <thead>
+          <tr>
+          	  <th class="gradient--header"><input class="table__checkbox" type="checkbox" /></th>
+              <th class="gradient--header" data-field="id">Username</th>
+              <th class="gradient--header" data-field="name">Email</th>
+              <th class="gradient--header" data-field="price">Replies</th>
+              <th class="gradient--header" data-field="price">Topics</th>
+              <th class="gradient--header" data-field="price">Solved</th>
+              <th class="gradient--header" data-field="price">Usergroup</th>
+              <th class="gradient--header" data-field="price">Registration date</th>
+              <th class="gradient--header" data-field="price">Last Login</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+          	<td><input class="table__checkbox"  type="checkbox" /></td>
+            <td><img class="table__person-image" src="https://s-media-cache-ak0.pinimg.com/avatars/lucybee999-1427112838_30.jpg"/>Lucy Bennet<img class="table__icon" src="https://image.freepik.com/free-icon/two-overlapping-square-outlines_318-36266.jpg" width="10"/></td>
+            <td>heimer.waters@gmail.com</td>
+            <td>9815</td>
+            <td>468</td>
+            <td>33</td>
+            <td>Colonel</td>
+            <td>01 Mar 2016</td>
+            <td>01 Mar 2016</td>
+          </tr>
+          <tr>
+          	<td><input class="table__checkbox" type="checkbox" /></td>
+            <td><img class="table__person-image" src="https://sbndv3.cloudimg.io/s/crop/30x30/graph.facebook.com/757577784377291/picture?type=square"/>Lula Fuller<img class="table__icon" src="https://image.freepik.com/free-icon/two-overlapping-square-outlines_318-36266.jpg" width="10"/></td>
+            <td>hahn_wilfred@hotmail.com</td>
+            <td>8724</td>
+            <td>684</td>
+            <td>512</td>
+            <td>Officer</td>
+            <td>06 May 2016</td>
+            <td>20 Jul 2016</td>
+          </tr>
+
+          <tr>
+          	<td><input  class="table__checkbox" type="checkbox" /></td>
+            <td><img class="table__person-image" src="http://2.bp.blogspot.com/-4jBEr2RjuzU/TfRl5xLIYJI/AAAAAAAAACY/3myrIEvtSmQ/s35/21%25252Bapril%25252B2010%25252B263.JPG"/>Sally Williams<img class="table__icon" src="https://image.freepik.com/free-icon/two-overlapping-square-outlines_318-36266.jpg" width="10"/></td>
+            <td>tressie.prosacco@hotmail.com</td>
+            <td>7256</td>
+            <td>442</td>
+            <td>784</td>
+            <td>General</td>
+            <td>29 Dec 2016</td>
+            <td>19 Jun 2016</td>
+          </tr>
+          <td><input class="table__checkbox"  type="checkbox" /></td>
+            <td><img class="table__person-image" src="https://s-media-cache-ak0.pinimg.com/avatars/lucybee999-1427112838_30.jpg"/>Lucy Bennet<img class="table__icon" src="https://image.freepik.com/free-icon/two-overlapping-square-outlines_318-36266.jpg" width="10"/></td>
+            <td>heimer.waters@gmail.com</td>
+            <td>9815</td>
+            <td>468</td>
+            <td>33</td>
+            <td>Colonel</td>
+            <td>01 Mar 2016</td>
+            <td>01 Mar 2016</td>
+          </tr>
+          <tr>
+          	<td><input class="table__checkbox" type="checkbox" /></td>
+            <td><img class="table__person-image" src="https://sbndv3.cloudimg.io/s/crop/30x30/graph.facebook.com/757577784377291/picture?type=square"/>Lula Fuller<img class="table__icon" src="https://image.freepik.com/free-icon/two-overlapping-square-outlines_318-36266.jpg" width="10"/></td>
+            <td>hahn_wilfred@hotmail.com</td>
+            <td>8724</td>
+            <td>684</td>
+            <td>512</td>
+            <td>Officer</td>
+            <td>06 May 2016</td>
+            <td>20 Jul 2016</td>
+          </tr>
+
+          <tr>
+          	<td><input  class="table__checkbox" type="checkbox" /></td>
+            <td><img class="table__person-image" src="http://2.bp.blogspot.com/-4jBEr2RjuzU/TfRl5xLIYJI/AAAAAAAAACY/3myrIEvtSmQ/s35/21%25252Bapril%25252B2010%25252B263.JPG"/>Sally Williams<img class="table__icon" src="https://image.freepik.com/free-icon/two-overlapping-square-outlines_318-36266.jpg" width="10"/></td>
+            <td>tressie.prosacco@hotmail.com</td>
+            <td>7256</td>
+            <td>442</td>
+            <td>784</td>
+            <td>General</td>
+            <td>29 Dec 2016</td>
+            <td>19 Jun 2016</td>
+          </tr>
+          <td><input class="table__checkbox"  type="checkbox" /></td>
+            <td><img class="table__person-image" src="https://s-media-cache-ak0.pinimg.com/avatars/lucybee999-1427112838_30.jpg"/>Lucy Bennet<img class="table__icon" src="https://image.freepik.com/free-icon/two-overlapping-square-outlines_318-36266.jpg" width="10"/></td>
+            <td>heimer.waters@gmail.com</td>
+            <td>9815</td>
+            <td>468</td>
+            <td>33</td>
+            <td>Colonel</td>
+            <td>01 Mar 2016</td>
+            <td>01 Mar 2016</td>
+          </tr>
+          <tr>
+          	<td><input class="table__checkbox" type="checkbox" /></td>
+            <td><img class="table__person-image" src="https://sbndv3.cloudimg.io/s/crop/30x30/graph.facebook.com/757577784377291/picture?type=square"/>Lula Fuller<img class="table__icon" src="https://image.freepik.com/free-icon/two-overlapping-square-outlines_318-36266.jpg" width="10"/></td>
+            <td>hahn_wilfred@hotmail.com</td>
+            <td>8724</td>
+            <td>684</td>
+            <td>512</td>
+            <td>Officer</td>
+            <td>06 May 2016</td>
+            <td>20 Jul 2016</td>
+          </tr>
+
+          <tr>
+          	<td><input  class="table__checkbox" type="checkbox" /></td>
+            <td><img class="table__person-image" src="http://2.bp.blogspot.com/-4jBEr2RjuzU/TfRl5xLIYJI/AAAAAAAAACY/3myrIEvtSmQ/s35/21%25252Bapril%25252B2010%25252B263.JPG"/>Sally Williams<img class="table__icon" src="https://image.freepik.com/free-icon/two-overlapping-square-outlines_318-36266.jpg" width="10"/></td>
+            <td>tressie.prosacco@hotmail.com</td>
+            <td>7256</td>
+            <td>442</td>
+            <td>784</td>
+            <td>General</td>
+            <td>29 Dec 2016</td>
+            <td>19 Jun 2016</td>
+          </tr>
+        </tbody>
+      </table>
+            
+	 </div>	
+	</div>
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-bootstrap/0.5pre/assets/js/jquery-ui-1.10.0.custom.min.js"></script>
+<script src="scripts.js"></script>
 </body>
 </html>

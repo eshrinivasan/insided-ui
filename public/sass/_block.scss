@@ -1,0 +1,139 @@
+$white: #fff;
+$dropdown-hover:#1EACF2;
+
+@mixin button-bg($bg: #fff, $color: #000) {
+  background: $bg;
+  color: $color;
+
+  &:hover {
+    background:darken($bg,3%);
+    transition: all 0.3s ease;
+  }
+
+  &:active,
+  &.darken {
+     background:#505050;
+     color:#fff;
+  }
+
+  &:focus{
+
+  }
+
+  &.disabled{
+
+  }	
+}
+
+%element-gradient{
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffffff 0%, #f6f6f6 47%, #ffffff 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #ffffff 0%,#f6f6f6 47%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+/*
+ *	Button styles
+ */
+
+.btn{
+	height:30px;
+	line-height: 30px;
+	border:none;
+	border-radius: 2px;
+	margin:10px 5px 0 10px;
+	padding: 0 10px 0 10px;
+	text-transform: capitalize;
+	text-align:left;
+	box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.16), 0 -1px 1px 1px rgba(0, 0, 0, 0.12);
+}
+
+.btn-default{
+	@extend .btn;
+	@include button-bg(#fcfcfc, #666);
+}
+
+.btn-primary{
+	@include button-bg(#1BACF6, #fff);
+}
+
+.btn-success{
+	@include button-bg(#A6CD52, #fff);
+}
+
+.btn-warning{
+	@include button-bg(#E88A29, #fff);
+}
+
+.btn-danger{
+	@include button-bg(#D7604C, #fff);
+}
+
+.btn-icon{
+	width:30px;
+	vertical-align: middle;
+	margin:auto;
+}
+
+.btn-icon-text{
+	vertical-align: middle;
+	margin:auto;
+}
+
+
+/*
+*	dropdown
+*/
+
+.dropdown-button{
+	height:30px;
+	border:1px solid #f1f1f1;
+	border-radius: 2px;
+	margin: 10px;
+	padding: 8px 10px;
+	@extend %element-gradient;
+}
+
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.dropdown-toggle{
+	width:100%;
+}
+
+.dropdown-menu>li>a:focus, 
+.dropdown-menu>li>a:hover{
+	background: $dropdown-hover;
+	color:$white;
+}
+
+.clearfix {display: inline-block;}
+
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */
+
+.anchor-btn{
+    color:red;
+    border:none;
+    box-shadow:none;
+    padding-left:0;
+}
+
+.caret{
+	float:right;
+}
+
+.gradient--header{
+	@extend %element-gradient;
+}
+

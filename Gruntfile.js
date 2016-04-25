@@ -1,6 +1,3 @@
-/**
- * Created by neelames on 3/17/2016.
- */
 module.exports = function (grunt) {
     "use strict";
 
@@ -9,9 +6,16 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
         watch: {
             scripts: {
-                files: ['./public/appmodule/**/*.js', '!./public/angularapp.js'],
-                tasks: ['jshint', 'concat:appmodule', 'sass:dev']
-            }
+                files: ['./public/modules/**/*.js', '!./public/scripts.js'],
+                tasks: ['jshint', 'concat:modules', 'sass:dev']
+            },
+            css: {
+                files: '**/*.scss',
+                tasks: ['sass:dev'],
+                options: {
+                  livereload: true,
+                },
+              },
         },
         sass: {
             dev: {
@@ -20,21 +24,20 @@ module.exports = function (grunt) {
                     sourcemap: 'none'
                  },
                 files: {
-                    './public/style.css' : './public/sass/style.scss'
+                    './public/css/style.css' : './public/sass/style.scss'
                 }
             }
         },
         concat: {
-            appmodule: {
-                src: ['./public/appmodule/**/*.js', '!./public/angularapp.js'],
-                dest: './public/angularapp.js'
+            modules: {
+                src: ['./public/modules/**/*.js', '!./public/scripts.js'],
+                dest: './public/scripts.js'
             }
         },
         jshint: {
             all: [
                 'public/**/*.js',
-                '!public/angularapp.js',
-                '!public/**/vendor/*.js'
+                '!public/scripts.js'
             ]
         }
     });
@@ -44,6 +47,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-concat');
     // Default task.
-    grunt.registerTask('default', ['concat', 'sass:dev', 'watch']);
+    grunt.registerTask('default', ['concat', 'sass:dev']);
     grunt.registerTask('dev', ['concat', 'sass:dev', 'watch']);
 };
